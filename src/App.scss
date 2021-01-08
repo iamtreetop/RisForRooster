@@ -1,11 +1,15 @@
 body {
   font-family: 'Quicksand', sans-serif;
-  padding: 20px 60px;
+  padding-top: 20px
 
-  @media screen and (max-width: 800px) {
-      padding: 10px;
-  }
+  // @media screen and (max-width: 800px) {
+  //     padding: 10px;
+  // }
 };
+
+.App {
+  height: 100vh;
+}
 
 a {
   text-decoration: none;

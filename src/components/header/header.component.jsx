@@ -8,7 +8,7 @@ import './header.styles.scss';
 const Header = () => (
   <div className='header'>
     <Link className='logo-container' to='/'>
-      <img src={Logo} className='logo' />
+      <img src={Logo} className='logo' alt="" />
     </Link>
     {/* <Search> */}
     <div className='options'>
