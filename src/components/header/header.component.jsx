@@ -10,6 +10,7 @@ const Header = () => (
     <Link className='logo-container' to='/'>
       <img src={Logo} className='logo' />
     </Link>
+    {/* <Search> */}
     <div className='options'>
       <Link className='option' to='/shop'>
         SHOP
@@ -17,6 +18,7 @@ const Header = () => (
       <Link className='option' to='/about-us'>
         OUR STORY
       </Link>
+      {/* <Cart> */}
     </div>
   </div>
 );
