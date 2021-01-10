@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import './App.scss';
@@ -55,12 +55,26 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route path='/shop' component={ShopPage} />
-          <Route path='/signin' component={SignInSignUpPage} />
+          <Route exact path='/signin' 
+            render={() => 
+              this.props.currentUser ? (
+                <Redirect to='/' />
+              ) : (
+                <SignInSignUpPage />
+              )
+            } 
+          />
         </Switch>
         <Footer />
       </div>
     )
   }
+};
+
+const mapSTP = ({ user }) => {
+  return ({
+    currentUser: user.currentUser
+  })
 };
 
 const mapDTP = dispatch => {
@@ -70,6 +84,6 @@ const mapDTP = dispatch => {
 };
 
 export default connect(
-  null,
+  mapSTP,
   mapDTP
 )(App);
