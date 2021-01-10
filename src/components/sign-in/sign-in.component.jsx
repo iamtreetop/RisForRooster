@@ -4,7 +4,6 @@ import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component'
 
 import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
-import googleBtn from '../../assets/btn_google_signin_dark_normal_web@2x.png'
 
 import './sign-in.styles.scss';
 
@@ -66,7 +65,10 @@ const SignIn = () => {
         />
         <div className='buttons'>
           <CustomButton type='submit'> Sign in </CustomButton>
-          <CustomButton onClick={signInWithGoogle} isGoogleSignIn> 
+          <CustomButton 
+            type="button" 
+            onClick={signInWithGoogle} 
+            isGoogleSignIn> 
             Google
           </CustomButton>
         </div>

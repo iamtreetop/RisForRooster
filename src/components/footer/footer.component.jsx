@@ -15,13 +15,13 @@ const Footer = () => {
         <h2>CONNECT WITH US</h2>
         <div className="icon-container">
           <div className="social-icon">
-            <img src={instagram} />
+            <img src={instagram} alt="" />
           </div>
           <div className="social-icon">
-            <img src={facebook} />
+            <img src={facebook} alt="" />
           </div>
           <div className="social-icon">
-            <img src={twitter} />
+            <img src={twitter} alt="" />
           </div>
         </div>
       </div>
