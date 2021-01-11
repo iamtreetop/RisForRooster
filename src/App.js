@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
 import './App.scss';
 
@@ -14,6 +15,7 @@ import Modal from "./ui/modal/modal.component";
 
 import { auth, createUserProfileDocument} from './firebase/firebase.utils';
 import { setCurrentUser } from './redux/user/user.actions';
+import { selectCurrentUser } from './redux/user/user.selectors'; 
 
 class App extends React.Component {
   constructor() {
@@ -73,11 +75,9 @@ class App extends React.Component {
   }
 };
 
-const mapSTP = ({ user }) => {
-  return ({
-    currentUser: user.currentUser
-  })
-};
+const mapSTP = createStructuredSelector ({
+  currentUser: selectCurrentUser
+});
 
 const mapDTP = dispatch => {
   return ({
