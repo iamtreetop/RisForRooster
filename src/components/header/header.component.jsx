@@ -6,12 +6,13 @@ import { auth } from '../../firebase/firebase.utils';
 
 import CartIcon from "../cart-icon/cart-icon.component";
 import CartDropdown from "../cart-dropdown/cart-dropdown.component";
+import { openModal } from "../../redux/modal/modal.actions";
 
 import Logo from '../../assets/logo.png'
 
 import './header.styles.scss';
 
-const Header = ({ currentUser, hidden }) => (
+const Header = ({ currentUser, hidden, openModal }) => (
   <div className='header'>
     <Link className='logo-container' to='/'>
       <img src={Logo} className='logo' alt="" />
@@ -29,9 +30,9 @@ const Header = ({ currentUser, hidden }) => (
           SIGN OUT
         </div>
       ) : (
-        <Link className='option' to='/signin'>
+        <div className='option' onClick={openModal}>
           SIGN IN
-        </Link>
+        </div>
       )}
       <CartIcon />
     </div>
@@ -46,4 +47,13 @@ const mapSTP = ({user: { currentUser }, cart: { hidden } }) => {
   });
 };
 
-export default connect(mapSTP)(Header);
+const mapDTP = (dispatch) => {
+  return ({
+    openModal: (modal) => dispatch(openModal(modal))
+  })
+}
+
+export default connect(
+  mapSTP, 
+  mapDTP
+)(Header);

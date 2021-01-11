@@ -10,6 +10,7 @@ import HomePage from './pages/homepage/homepage.component';
 import SignInSignUpPage from './pages/sign-in-sign-up/sign-in-sign-up.component';
 import ShopPage from './pages/shop/shop.component.jsx';
 import Footer from './components/footer/footer.component';
+import Modal from "./ui/modal/modal.component";
 
 import { auth, createUserProfileDocument} from './firebase/firebase.utils';
 import { setCurrentUser } from './redux/user/user.actions';
@@ -50,6 +51,7 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
+        <Modal />
         <Header />
         <Banner />
         <Switch>
