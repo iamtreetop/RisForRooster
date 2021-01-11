@@ -105,7 +105,7 @@ const SHOP_DATA = [
   },
   {
     id: 3,
-    title: 'Learning Sheets',
+    title: 'Sheets',
     routeName: 'sheets',
     items: [
       {

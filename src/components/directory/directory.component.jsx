@@ -25,7 +25,7 @@ class Directory extends React.Component {
           linkUrl: 'wall-art'
         },
         {
-          title: 'Learning Sheets',
+          title: 'Sheets',
           imageUrl: 'https://i.etsystatic.com/25063274/r/il/fa4ef3/2739267804/il_794xN.2739267804_g39h.jpg',
           size: 'small',
           id: 3,
