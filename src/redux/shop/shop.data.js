@@ -1,8 +1,8 @@
 const SHOP_DATA = [
   {
     id: 1,
-    title: 'Educational Prints',
-    routeName: 'prints',
+    title: 'educational prints',
+    routeName: 'educational prints',
     items: [
       {
         id: 1,
@@ -50,8 +50,8 @@ const SHOP_DATA = [
   },
   {
     id: 2,
-    title: 'Wall Art',
-    routeName: 'wall-art',
+    title: 'wall art',
+    routeName: 'wall art',
     items: [
       {
         id: 8,
@@ -105,7 +105,7 @@ const SHOP_DATA = [
   },
   {
     id: 3,
-    title: 'Sheets',
+    title: 'sheets',
     routeName: 'sheets',
     items: [
       {
@@ -124,8 +124,8 @@ const SHOP_DATA = [
   },
   {
     id: 4,
-    title: 'Craft Kits',
-    routeName: 'kits',
+    title: 'craft kits',
+    routeName: 'craft kits',
     items: [
       {
         id: 18,
