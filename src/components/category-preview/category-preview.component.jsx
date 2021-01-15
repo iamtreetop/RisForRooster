@@ -1,13 +1,18 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 import CategoryItem from '../category-item/category-item.component';
 
 import './category-preview.styles.scss'
 
-const CategoryPreview = ({ title, items }) => {
+const CategoryPreview = ({ title, items, history, match, routeName }) => {
   return (
   <div className='category-preview'>
-    <h1 className='title'>{title.toUpperCase()}</h1>
+    <h1 className='title'
+      onClick={() => history.push(`${match.path}/${routeName}`)}
+    >
+      {title.toUpperCase()}
+    </h1>
     <div className='preview'>
       {items
         .filter((item, idx) => idx < 4)
@@ -19,4 +24,4 @@ const CategoryPreview = ({ title, items }) => {
   );
 };
 
-export default CategoryPreview;
+export default withRouter(CategoryPreview);
