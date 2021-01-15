@@ -9,16 +9,16 @@ import './category.styles.scss';
 
 const CategoryPage = ({ category }) => {
   console.log(category);
-  // const { title, items } = category;
+  const { title, items } = category;
   return (
     <div className='category-page'>
       CATEGORY PAGE
-      {/* <h2 className='title'>{title}</h2>
+      <h2 className='title'>{title.toUpperCase()}</h2>
       <div className='items'>
         {items.map(item => (
           <CategoryItem key={item.id} item={item} />
         ))}
-      </div> */}
+      </div>
     </div>
   );
 };

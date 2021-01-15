@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import CategoryPreview from "../category-preview/category-preview.component";
-import { selectCategories } from '../../redux/shop/shop.selectors';
+import { selectCategoriesForPreview } from '../../redux/shop/shop.selectors';
 
 import './categories-overview.styles.scss';
 
@@ -18,7 +18,7 @@ const CategoriesOverview = ({ categories }) => {
 };
 
 const mapSTP = createStructuredSelector({
-  categories: selectCategories
+  categories: selectCategoriesForPreview
 })
 
 export default connect(mapSTP)(CategoriesOverview);

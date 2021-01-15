@@ -1,8 +1,8 @@
-const SHOP_DATA = [
-  {
+const SHOP_DATA = {
+  educational_prints: {
     id: 1,
     title: 'educational prints',
-    routeName: 'educational prints',
+    routeName: 'educational_prints',
     items: [
       {
         id: 1,
@@ -48,10 +48,10 @@ const SHOP_DATA = [
       }
     ]
   },
-  {
+  wall_art: {
     id: 2,
     title: 'wall art',
-    routeName: 'wall art',
+    routeName: 'wall_art',
     items: [
       {
         id: 8,
@@ -103,7 +103,7 @@ const SHOP_DATA = [
       },
     ]
   },
-  {
+  sheets: {
     id: 3,
     title: 'sheets',
     routeName: 'sheets',
@@ -122,10 +122,10 @@ const SHOP_DATA = [
       },
     ]
   },
-  {
+  craft_kits: {
     id: 4,
     title: 'craft kits',
-    routeName: 'craft kits',
+    routeName: 'craft_kits',
     items: [
       {
         id: 18,
@@ -141,6 +141,6 @@ const SHOP_DATA = [
       }
     ]
   }
-];
+};
 
 export default SHOP_DATA;
