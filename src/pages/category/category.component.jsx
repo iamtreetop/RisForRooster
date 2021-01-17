@@ -5,21 +5,26 @@ import CategoryItem from '../../components/category-item/category-item.component
 
 import { selectCategory } from '../../redux/shop/shop.selectors';
 
-import './category.styles.scss';
+import {
+  CategoryPageContainer,
+  CategoryTitle,
+  CategoryItemsContainer
+} from './category.styles';
+
+// import './category.styles.scss';
 
 const CategoryPage = ({ category }) => {
   console.log(category);
   const { title, items } = category;
   return (
-    <div className='category-page'>
-      CATEGORY PAGE
-      <h2 className='title'>{title.toUpperCase()}</h2>
-      <div className='items'>
+    <CategoryPageContainer>
+      <CategoryTitle>{title.toUpperCase()}</CategoryTitle>
+      <CategoryItemsContainer>
         {items.map(item => (
           <CategoryItem key={item.id} item={item} />
         ))}
-      </div>
-    </div>
+      </CategoryItemsContainer>
+    </CategoryPageContainer>
   );
 };
 
