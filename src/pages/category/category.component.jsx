@@ -11,10 +11,7 @@ import {
   CategoryItemsContainer
 } from './category.styles';
 
-// import './category.styles.scss';
-
 const CategoryPage = ({ category }) => {
-  console.log(category);
   const { title, items } = category;
   return (
     <CategoryPageContainer>
