@@ -1,9 +1,7 @@
-import SHOP_DATA from "./shop.data";
-
 export const UPDATE_COLLECTIONS = "UPDATE_COLLECTIONS";
 
 const INITIAL_STATE = {
-  categories: SHOP_DATA,
+  categories: null,
 };
 
 const shopReducer = (state = INITIAL_STATE, action) => {

@@ -9,11 +9,13 @@ export const selectCategories = createSelector(
 
 export const selectCategoriesForPreview = createSelector(
   [selectCategories],
-  (categories) => Object.keys(categories).map((key) => categories[key])
+  (categories) => 
+    categories ? Object.keys(categories).map((key) => categories[key]) : []
 )
 
 export const selectCategory = (categoryUrlParam) =>
   createSelector(
     [selectCategories],
-    (categories) => categories[categoryUrlParam]
+    (categories) => 
+      categories ? categories[categoryUrlParam] : null
   );
