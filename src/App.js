@@ -14,7 +14,8 @@ import CheckoutPage from './pages/checkout/checkout.component';
 import Footer from './components/footer/footer.component';
 import Modal from "./ui/modal/modal.component";
 
-import { auth, createUserProfileDocument} from './firebase/firebase.utils';
+import { auth, createUserProfileDocument } from './firebase/firebase.utils';
+
 import { setCurrentUser } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selectors'; 
 
@@ -77,8 +78,8 @@ class App extends React.Component {
   }
 };
 
-const mapSTP = createStructuredSelector ({
-  currentUser: selectCurrentUser
+const mapSTP = createStructuredSelector({
+    currentUser: selectCurrentUser,
 });
 
 const mapDTP = dispatch => {
