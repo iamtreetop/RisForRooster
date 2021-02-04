@@ -16,5 +16,6 @@ export const CategoryItemsContainer = styled.div`
   grid-gap: 10px;
   & > div {
     margin-bottom: 30px;
+    margin-left: 15px;
   }
 `;
