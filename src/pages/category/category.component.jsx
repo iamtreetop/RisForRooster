@@ -29,6 +29,6 @@ const mapSTP = (state, ownProps) => {
   return ({
     category: selectCategory(ownProps.match.params.categoryId)(state)
   })
-}
+};
 
 export default connect(mapSTP)(CategoryPage);

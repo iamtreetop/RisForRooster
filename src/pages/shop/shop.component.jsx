@@ -7,7 +7,10 @@ import CategoriesOverview from '../../components/categories-overview/categories-
 import CategoryPage from '../category/category.component';
 
 import { fetchCategoriesStartAsync } from '../../redux/shop/shop.actions';
-import { selectIsCategoryFetching } from '../../redux/shop/shop.selectors';
+import { 
+  selectIsCategoryFetching, 
+  selectIsCategoryLoaded 
+} from '../../redux/shop/shop.selectors';
 
 import WithSpinner from '../../components/with-spinner/with-spinner.component';
 
@@ -24,7 +27,7 @@ class ShopPage extends React.Component {
   }
 
   render() {
-    const { match, isCategoryFetching } = this.props;
+    const { match, isCategoryFetching, isCategoryLoaded } = this.props;
     return (
       <div className="shop-page">
         <Route 
@@ -37,7 +40,7 @@ class ShopPage extends React.Component {
         <Route 
           path={`${match.path}/:categoryId`} 
           render={props => (
-            <CategoryPageWithSpinner isLoading={isCategoryFetching} {...props} />
+            <CategoryPageWithSpinner isLoading={!isCategoryLoaded} {...props} />
           )}
         />
       </div>
@@ -46,7 +49,8 @@ class ShopPage extends React.Component {
 };
 
 const mapSTP = createStructuredSelector({
-  isCategoryFetching: selectIsCategoryFetching
+  isCategoryFetching: selectIsCategoryFetching,
+  isCategoryLoaded: selectIsCategoryLoaded
 })
 
 const mapDTP = dispatch => {

@@ -24,3 +24,8 @@ export const selectIsCategoryFetching = createSelector(
   [selectShop],
   (shop) => shop.isFetching
 );
+
+export const selectIsCategoryLoaded = createSelector(
+  [selectShop],
+  (shop) => !!shop.categories
+);
