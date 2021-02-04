@@ -11,6 +11,7 @@ import HomePage from './pages/homepage/homepage.component';
 import SignInSignUpPage from './pages/sign-in-sign-up/sign-in-sign-up.component';
 import ShopPage from './pages/shop/shop.component.jsx';
 import CheckoutPage from './pages/checkout/checkout.component';
+import AboutUsPage from './pages/about-us/about-us.component';
 import Footer from './components/footer/footer.component';
 import Modal from "./ui/modal/modal.component";
 
@@ -52,6 +53,7 @@ class App extends React.Component {
   componentWillUnmount() {
     this.unsubscribeFromAuth();
   }
+  
   render(){
     return (
       <div className="App">
@@ -59,22 +61,25 @@ class App extends React.Component {
         <Header />
         <Banner />
         <Switch>
-          <Route exact path='/' component={HomePage} />
-          <Route path='/shop' component={ShopPage} />
-          <Route exact path='/checkout' component={CheckoutPage} />
-          <Route exact path='/signin' 
-            render={() => 
+          <Route exact path="/" component={HomePage} />
+          <Route path="/shop" component={ShopPage} />
+          <Route path="/about-us" component={AboutUsPage} />
+          <Route exact path="/checkout" component={CheckoutPage} />
+          <Route
+            exact
+            path="/signin"
+            render={() =>
               this.props.currentUser ? (
-                <Redirect to='/' />
+                <Redirect to="/" />
               ) : (
                 <SignInSignUpPage />
               )
-            } 
+            }
           />
         </Switch>
         <Footer />
       </div>
-    )
+    );
   }
 };
 
