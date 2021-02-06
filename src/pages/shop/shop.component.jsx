@@ -3,18 +3,16 @@ import { Route } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 
-import CategoriesOverview from '../../components/categories-overview/categories-overview.component'
+import CategoriesOverviewContainer from '../../components/categories-overview/categories-overview.container'
 import CategoryPage from '../category/category.component';
 
 import { fetchCategoriesStartAsync } from '../../redux/shop/shop.actions';
 import { 
-  selectIsCategoryFetching, 
   selectIsCategoryLoaded 
 } from '../../redux/shop/shop.selectors';
 
 import WithSpinner from '../../components/with-spinner/with-spinner.component';
 
-const CategoriesOverviewWithSpinner = WithSpinner(CategoriesOverview);
 const CategoryPageWithSpinner = WithSpinner(CategoryPage);
 
 class ShopPage extends React.Component {
@@ -27,15 +25,13 @@ class ShopPage extends React.Component {
   }
 
   render() {
-    const { match, isCategoryFetching, isCategoryLoaded } = this.props;
+    const { match, isCategoryLoaded } = this.props;
     return (
       <div className="shop-page">
         <Route 
           exact 
           path={`${match.path}`} 
-          render={props => (
-            <CategoriesOverviewWithSpinner isLoading={isCategoryFetching} {...props} />
-          )}
+          component={CategoriesOverviewContainer}
         />
         <Route 
           path={`${match.path}/:categoryId`} 
@@ -49,7 +45,6 @@ class ShopPage extends React.Component {
 };
 
 const mapSTP = createStructuredSelector({
-  isCategoryFetching: selectIsCategoryFetching,
   isCategoryLoaded: selectIsCategoryLoaded
 })
 
