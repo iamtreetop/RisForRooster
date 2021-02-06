@@ -5,15 +5,15 @@ import { connect } from 'react-redux';
 import CategoriesOverviewContainer from '../../components/categories-overview/categories-overview.container'
 import CategoryPageContainer from '../category/category.container';
 
-import { fetchCategoriesStartAsync } from '../../redux/shop/shop.actions';
+import { fetchCategoriesStart } from '../../redux/shop/shop.actions';
 
 class ShopPage extends React.Component {
 
   unsubscribeFromSnapshot = null;
 
   componentDidMount() {
-    const { fetchCategoriesStartAsync } = this.props;
-    fetchCategoriesStartAsync();
+    const { fetchCategoriesStart } = this.props;
+    fetchCategoriesStart();
   }
 
   render() {
@@ -36,7 +36,7 @@ class ShopPage extends React.Component {
 
 const mapDTP = dispatch => {
   return ({
-    fetchCategoriesStartAsync: () => dispatch(fetchCategoriesStartAsync())
+    fetchCategoriesStart: () => dispatch(fetchCategoriesStart())
   })
 };
 
