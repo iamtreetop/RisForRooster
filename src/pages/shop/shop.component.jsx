@@ -1,19 +1,11 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 
 import CategoriesOverviewContainer from '../../components/categories-overview/categories-overview.container'
-import CategoryPage from '../category/category.component';
+import CategoryPageContainer from '../category/category.container';
 
 import { fetchCategoriesStartAsync } from '../../redux/shop/shop.actions';
-import { 
-  selectIsCategoryLoaded 
-} from '../../redux/shop/shop.selectors';
-
-import WithSpinner from '../../components/with-spinner/with-spinner.component';
-
-const CategoryPageWithSpinner = WithSpinner(CategoryPage);
 
 class ShopPage extends React.Component {
 
@@ -25,7 +17,7 @@ class ShopPage extends React.Component {
   }
 
   render() {
-    const { match, isCategoryLoaded } = this.props;
+    const { match } = this.props;
     return (
       <div className="shop-page">
         <Route 
@@ -35,18 +27,12 @@ class ShopPage extends React.Component {
         />
         <Route 
           path={`${match.path}/:categoryId`} 
-          render={props => (
-            <CategoryPageWithSpinner isLoading={!isCategoryLoaded} {...props} />
-          )}
+          component={CategoryPageContainer}
         />
       </div>
     )
   }
 };
-
-const mapSTP = createStructuredSelector({
-  isCategoryLoaded: selectIsCategoryLoaded
-})
 
 const mapDTP = dispatch => {
   return ({
@@ -55,6 +41,6 @@ const mapDTP = dispatch => {
 };
 
 export default connect(
-  mapSTP,
+  null,
   mapDTP
 )(ShopPage);
