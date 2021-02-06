@@ -1,4 +1,4 @@
-import { takeEvery, call, put, all } from "redux-saga/effects";
+import { takeLatest, call, put, all } from "redux-saga/effects";
 
 import {
   firestore,
@@ -27,7 +27,7 @@ export function* fetchCategoriesAsync() {
 };
 
 export function* fetchCategoriesStart() {
-  yield takeEvery(
+  yield takeLatest(
     'FETCH_CATEGORIES_START',
     fetchCategoriesAsync
   );
