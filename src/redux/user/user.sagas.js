@@ -15,7 +15,6 @@ import {
 
 export function* getSnapshotFromUserAuth(userAuth) {
   try {
-    debugger
     const userRef = yield call(createUserProfileDocument, userAuth)
     const userSnapshot = yield userRef.get();
     yield put(
@@ -33,8 +32,6 @@ export function* signInWithGoogle() {
   try {
     const { user } = yield auth.signInWithPopup(googleProvider)
     yield getSnapshotFromUserAuth(user)
-    // console.log(user)
-    // console.log('i am fired')
   } catch(error) {
     yield put(signInFailure(error))
   }
