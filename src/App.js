@@ -15,9 +15,6 @@ import AboutUsPage from './pages/about-us/about-us.component';
 import Footer from './components/footer/footer.component';
 import Modal from "./ui/modal/modal.component";
 
-import { auth, createUserProfileDocument } from './firebase/firebase.utils';
-
-import { setCurrentUser } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selectors'; 
 
 class App extends React.Component {
@@ -32,7 +29,6 @@ class App extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    const { setCurrentUser } = this.props;
     // checkUserSession();
   }
 
@@ -73,13 +69,6 @@ const mapSTP = createStructuredSelector({
     currentUser: selectCurrentUser,
 });
 
-const mapDTP = dispatch => {
-  return ({
-    setCurrentUser: (user) => dispatch(setCurrentUser(user))
-  })
-};
-
 export default connect(
-  mapSTP,
-  mapDTP
+  mapSTP
 )(App);

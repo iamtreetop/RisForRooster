@@ -4,12 +4,14 @@ import { connect } from 'react-redux';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component'
 
-import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
-import { googleSignInStart } from "../../redux/user/user.actions";
+import { 
+  googleSignInStart, 
+  emailSignInStart 
+} from "../../redux/user/user.actions";
 
 import './sign-in.styles.scss';
 
-const SignIn = ({ googleSignInStart }) => {
+const SignIn = ({ googleSignInStart, emailSignInStart }) => {
 
   const [ userCredentials, setCredentials ] = useState({
     email: '',
@@ -20,17 +22,7 @@ const SignIn = ({ googleSignInStart }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    try {
-      await auth.signInWithEmailAndPassword(email, password);
-      
-      setCredentials({
-        email: '',
-        password: ''
-      })
-    } catch (error) {
-      console.log(error);
-    }
+    emailSignInStart(email, password)
   };
 
   const handleChange = (e) => {
@@ -81,7 +73,8 @@ const SignIn = ({ googleSignInStart }) => {
 
 const mapDTP = dispatch => {
   return ({
-    googleSignInStart: () => dispatch(googleSignInStart())
+    googleSignInStart: () => dispatch(googleSignInStart()),
+    emailSignInStart: (email, password) => dispatch(emailSignInStart({email, password}))
   });
 };
 
