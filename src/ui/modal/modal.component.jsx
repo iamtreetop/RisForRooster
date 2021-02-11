@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { closeModal } from '../../redux/modal/modal.actions';
 
 import SignIn from "../../components/sign-in/sign-in.component";
-// import SignUp from "../../components/sign-up/sign-up.component";
+import SignUp from "../../components/sign-up/sign-up.component";
 
 
 import './modal.styles.scss';
@@ -17,7 +17,7 @@ const Modal = ({ modal, closeModal }) => {
     <div className="modal-background" onClick={closeModal} >
       <div className="modal-child" onClick={e => e.stopPropagation()} >
         <SignIn />
-        {/* <SignUp /> */}
+        <SignUp />
       </div>
     </div>
   )

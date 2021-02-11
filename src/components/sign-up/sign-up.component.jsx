@@ -51,7 +51,7 @@ const SignUp = () => {
           name='displayName'
           value={displayName}
           handleChange={handleChange}
-          label='Display Name'
+          label='display name'
           required
         />
         <FormInput 
@@ -75,10 +75,10 @@ const SignUp = () => {
           name='confirmPassword'
           value={confirmPassword}
           handleChange={handleChange}
-          label='Confirm Password'
+          label='confirm password'
           required
         />
-        <CustomButton type="submit">Register</CustomButton>
+        <CustomButton className='buttons' type="submit">Register</CustomButton>
       </form>
     </div>
   )
