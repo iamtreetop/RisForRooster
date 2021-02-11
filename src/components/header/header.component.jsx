@@ -10,12 +10,13 @@ import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 import { openModal } from "../../redux/modal/modal.actions";
 import { selectCartHidden } from '../../redux/cart/cart.selectors';
 import { selectCurrentUser } from '../../redux/user/user.selectors';
+import { signOutStart }from '../../redux/user/user.actions';
 
 import Logo from '../../assets/logo.png'
 
 import './header.styles.scss';
 
-const Header = ({ currentUser, hidden, openModal }) => {
+const Header = ({ currentUser, hidden, openModal, signOutStart }) => {
   
   const [scrolled, setScrolled] = useState(false);
 
@@ -55,7 +56,7 @@ const Header = ({ currentUser, hidden, openModal }) => {
           OUR STORY
         </Link>
         {currentUser ? (
-          <div className='option'onClick={() => auth.signOut()}>
+          <div className='option'onClick={signOutStart}>
             SIGN OUT
           </div>
         ) : (
@@ -78,7 +79,8 @@ const mapSTP = createStructuredSelector ({
 
 const mapDTP = (dispatch) => {
   return ({
-    openModal: (modal) => dispatch(openModal(modal))
+    openModal: (modal) => dispatch(openModal(modal)),
+    signOutStart: () => dispatch(signOutStart())
   })
 }
 

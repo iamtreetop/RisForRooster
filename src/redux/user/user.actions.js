@@ -32,3 +32,22 @@ export const checkUserSession = () => {
     type: UserActionTypes.CHECK_USER_SESSION
   })
 };
+
+export const signOutStart = () => {
+  return {
+    type: UserActionTypes.SIGN_OUT_START,
+  };
+};
+
+export const signOutSuccess = () => {
+  return {
+    type: UserActionTypes.SIGN_OUT_SUCCESS,
+  };
+};
+
+export const signOutFailure = (error) => {
+  return {
+    type: UserActionTypes.SIGN_IN_FAILURE,
+    payload: error,
+  };
+};
