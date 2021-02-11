@@ -15,7 +15,8 @@ import AboutUsPage from './pages/about-us/about-us.component';
 import Footer from './components/footer/footer.component';
 import Modal from "./ui/modal/modal.component";
 
-import { selectCurrentUser } from './redux/user/user.selectors'; 
+import { selectCurrentUser } from './redux/user/user.selectors';
+import { checkUserSession } from "./redux/user/user.actions";
 
 class App extends React.Component {
   constructor() {
@@ -29,12 +30,13 @@ class App extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    // checkUserSession();
-  }
+    const { checkUserSession } = this.props;
+    checkUserSession();
+  };
 
   componentWillUnmount() {
     this.unsubscribeFromAuth();
-  }
+  };
   
   render(){
     return (
@@ -69,6 +71,13 @@ const mapSTP = createStructuredSelector({
     currentUser: selectCurrentUser,
 });
 
+const mapDTP = (dispatch) => {
+  return ({
+    checkUserSession: () => dispatch(checkUserSession())
+  })
+}
+
 export default connect(
-  mapSTP
+  mapSTP,
+  mapDTP
 )(App);
